@@ -2,3 +2,5 @@
 /build
 /media-server
 .env
+deploy.sh
+setup.sh

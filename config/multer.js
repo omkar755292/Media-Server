@@ -22,6 +22,16 @@ const videoStorage = multer.diskStorage({
     },
 });
 
+// Set storage engine for document
+const documentStorage = multer.diskStorage({
+    destination: (req, file, cb) => {
+        cb(null, '../../backup/media/documents');
+    },
+    filename: (req, file, cb) => {
+        cb(null, file.originalname);
+    },
+});
+
 // Multer upload for images
 const uploadImage = multer({
     storage: imageStorage,
@@ -34,4 +44,10 @@ const uploadVideo = multer({
     limits: { fileSize: 50000000 }, // Limit file size to 50MB
 });
 
-module.exports = { uploadImage, uploadVideo };
+// Multer upload for doucument
+const uploadDocument = multer({
+    storage: documentStorage,
+    limits: { fileSize: 50000000 }, // Limit file size to 50MB
+});
+
+module.exports = { uploadImage, uploadVideo, uploadDocument };

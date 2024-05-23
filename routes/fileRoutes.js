@@ -14,7 +14,7 @@ fileRouter.route('/image').post(uploadImage.single('file'), async (req, res) => 
 
         res.status(200).json({
             fileName: req.file.filename,
-            filePath: `${process.env.MEDIA_URL}/media/images/${req.file.filename}`, 
+            fileUrl: `${process.env.MEDIA_URL}/media/images/${req.file.filename}`, 
         });
 
     } catch (error) {
@@ -34,7 +34,7 @@ fileRouter.route('/video').post(uploadVideo.single('file'), async (req, res) => 
 
         res.status(200).json({
             fileName: req.file.filename,
-            filePath: `${process.env.MEDIA_URL}/media/videos/${req.file.filename}`, 
+            fileUrl: `${process.env.MEDIA_URL}/media/videos/${req.file.filename}`, 
         });
 
     } catch (error) {
@@ -54,7 +54,7 @@ fileRouter.route('/document').post(uploadDocument.single('file'), async (req, re
 
         res.status(200).json({
             fileName: req.file.filename,
-            filePath: `${process.env.MEDIA_URL}/media/documents/${req.file.filename}`, 
+            fileUrl: `${process.env.MEDIA_URL}/media/documents/${req.file.filename}`, 
         });
 
     } catch (error) {
